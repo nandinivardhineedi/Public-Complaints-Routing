@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+services/node_modules/
+services/firebase-admin-key.json
+.env.local
+node_modules
