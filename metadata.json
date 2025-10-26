@@ -1,0 +1,5 @@
+{
+  "name": "CivicLens: AI Complaint Analysis Platform",
+  "description": "An AI-enabled public service complaint analysis and routing system that automatically aggregates, analyses, and prioritizes citizen complaints. This platform provides dashboards and analytics for city administrators to gain insights and take action.",
+  "requestFramePermissions": []
+}
