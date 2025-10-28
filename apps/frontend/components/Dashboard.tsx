@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import type { Complaint } from '../types';
-import { ComplaintCategory, ComplaintStatus, Sentiment } from '../types';
+import type { Complaint } from '../../../shared/types';
+import { ComplaintCategory, ComplaintStatus, Sentiment } from '../../../shared/types';
 import { Card } from './Card';
 import { BarChartComponent } from './BarChartComponent';
 import { LineChartComponent } from './LineChartComponent';
-import { getWeeklySummary } from '../api/geminiService';
+import { getWeeklySummary } from '../../api/geminiService';
 import { FileTextIcon, CheckCircleIcon, TrendingUpIcon, UsersIcon, AlertTriangleIcon } from './icons/IconComponents';
-
 interface DashboardProps {
     complaints: Complaint[];
 }
-
 const AiSummaryCard: React.FC<{ complaints: Complaint[] }> = ({ complaints }) => {
     const [summary, setSummary] = useState<string>('Generating AI summary...');
     const [isLoading, setIsLoading] = useState<boolean>(true);

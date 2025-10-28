@@ -1,4 +1,4 @@
-import { Complaint, ComplaintStatus, ComplaintCategory, Sentiment, DataSource } from './types';
+import { Complaint, ComplaintStatus, ComplaintCategory, Sentiment, DataSource } from '../../shared/types';
 
 export const MOCK_COMPLAINTS: Complaint[] = [
   {

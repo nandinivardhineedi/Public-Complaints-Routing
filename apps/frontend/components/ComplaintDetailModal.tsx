@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import type { Complaint } from '../types';
-import { ComplaintStatus, Sentiment, DataSource } from '../types';
+import type { Complaint } from '../../../shared/types';
+import { ComplaintStatus, Sentiment, DataSource } from '../../../shared/types';
 import { XIcon } from './icons/IconComponents';
 
 interface ComplaintDetailModalProps {
