@@ -52,3 +52,4 @@ export interface User {
   password?: string; 
   id?: string; // Firestore ID - CRITICAL for profile updates
 }
+

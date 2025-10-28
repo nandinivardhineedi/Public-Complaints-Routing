@@ -4,7 +4,7 @@ import { ComplaintCategory, ComplaintStatus, Sentiment } from '../types';
 import { Card } from './Card';
 import { BarChartComponent } from './BarChartComponent';
 import { LineChartComponent } from './LineChartComponent';
-import { getWeeklySummary } from '../services/geminiService';
+import { getWeeklySummary } from '../api/geminiService';
 import { FileTextIcon, CheckCircleIcon, TrendingUpIcon, UsersIcon, AlertTriangleIcon } from './icons/IconComponents';
 
 interface DashboardProps {
@@ -18,8 +18,14 @@ const AiSummaryCard: React.FC<{ complaints: Complaint[] }> = ({ complaints }) =>
     useEffect(() => {
         const fetchSummary = async () => {
             setIsLoading(true);
-            const result = await getWeeklySummary(complaints);
-            setSummary(result);
+            // Wrap the call in a try/catch to prevent crash if Gemini API fails
+            try {
+                const result = await getWeeklySummary(complaints);
+                setSummary(result);
+            } catch (e) {
+                setSummary("AI Summary service is unavailable or encountered an error.");
+                console.error("Gemini Service Error:", e);
+            }
             setIsLoading(false);
         };
 
@@ -155,7 +161,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ complaints }) => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <AiSummaryCard complaints={complaints} />
+                {/* <AiSummaryCard complaints={complaints} />   <-- COMMENT THIS LINE OUT */}
                  <div className="bg-white p-6 rounded-lg border border-gray-200">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Complaints</h3>
                     <ul className="space-y-4">

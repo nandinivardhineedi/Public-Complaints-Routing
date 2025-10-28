@@ -116,3 +116,4 @@ export const SubmitComplaint: React.FC<SubmitComplaintProps> = ({ onAddComplaint
     </div>
   );
 };
+

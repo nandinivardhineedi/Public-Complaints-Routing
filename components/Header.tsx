@@ -84,3 +84,4 @@ export const Header: React.FC<HeaderProps> = ({ activeView, user, onLogout, setA
         </header>
     );
 };
+
