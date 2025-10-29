@@ -227,3 +227,4 @@ app.patch('/api/user/:id/password', async (req, res) => {
 // app.listen(PORT, () => {
 //     console.log(`🚀 Backend Server running on http://localhost:${PORT}`);
 // });
+module.exports = app;
