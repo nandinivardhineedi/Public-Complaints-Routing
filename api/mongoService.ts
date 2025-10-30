@@ -105,8 +105,8 @@
 // };
 
 
-import type { Complaint } from '../shared/types';
-import { ComplaintStatus, ComplaintCategory, DataSource } from '../shared/types';
+import type { Complaint } from '../src/types';
+import { ComplaintStatus, ComplaintCategory, DataSource } from '../src/types';
 
 // Read base URL either from env (relative '/api' for Vercel) or default localhost (for dev)
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000/api';

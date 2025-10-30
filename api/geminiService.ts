@@ -1,5 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
-import type { Complaint } from '../shared/types';
+import type { Complaint } from '../src/types';
 
 const getApiKey = (): string => {
   const apiKey = process.env.API_KEY;
