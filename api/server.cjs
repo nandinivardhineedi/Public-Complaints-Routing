@@ -38,7 +38,7 @@ const app = express();
 
 // Middleware config
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: ['https://public-complaints-routing.vercel.app'],
     methods: ['GET', 'POST', 'PATCH']
 }));
 app.use(express.json());
