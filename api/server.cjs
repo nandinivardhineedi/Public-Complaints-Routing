@@ -1,4 +1,3 @@
-
 const express = require('express');
 const cors = require('cors');
 const admin = require('firebase-admin');
@@ -39,7 +38,9 @@ const app = express();
 // Middleware config
 app.use(cors({
     origin: ['https://public-complaints-routing.vercel.app'],
-    methods: ['GET', 'POST', 'PATCH']
+    methods: ['GET', 'POST', 'PATCH'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+
 }));
 app.use(express.json());
 

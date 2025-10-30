@@ -109,7 +109,7 @@ import type { Complaint } from '../src/types';
 import { ComplaintStatus, ComplaintCategory, DataSource } from '../src/types';
 
 // Read base URL either from env (relative '/api' for Vercel) or default localhost (for dev)
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '/api';
 
 export const saveNewComplaintToDB = async (formData: { complaint_text: string; location: string; category: ComplaintCategory; username: string; }): Promise<any> => {
   try {
