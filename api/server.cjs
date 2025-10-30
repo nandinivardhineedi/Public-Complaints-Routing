@@ -35,13 +35,27 @@ const usersCollectionRef = db.collection('users');
 
 const app = express();
 
-// Middleware config
-app.use(cors({
-    origin: ['https://public-complaints-routing.vercel.app'],
-    methods: ['GET', 'POST', 'PATCH'],
-      allowedHeaders: ['Content-Type', 'Authorization'],
+// Dynamic CORS origin setup
+const allowedOrigins = [
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null, // dynamic Vercel deployment URL
+    'http://localhost:3000' // local dev
+].filter(Boolean);
 
-}));
+const corsOptions = {
+    origin: function(origin, callback) {
+        if (!origin) return callback(null, true); // allow non-browser clients like curl or postman
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('CORS policy: This origin is not allowed.'));
+        }
+    },
+    methods: ['GET', 'POST', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Utility: Sequence Counter
@@ -56,7 +70,6 @@ const getNextSequenceValue = async (sequenceName) => {
 
 // API ROUTES
 
-// GET /api/complaints: Fetch all complaints
 app.get('/api/complaints', async (req, res) => {
     try {
         const snapshot = await complaintsCollectionRef.orderBy('timestamp', 'desc').get();
@@ -70,7 +83,6 @@ app.get('/api/complaints', async (req, res) => {
     }
 });
 
-// POST /api/complaints/submit: Handle single submission
 app.post('/api/complaints/submit', async (req, res) => {
     const formData = req.body;
     const username = formData.username || 'Anonymous Citizen';
@@ -96,6 +108,7 @@ app.post('/api/complaints/submit', async (req, res) => {
         res.status(500).json({ message: "Failed to submit complaint." });
     }
 });
+
 
 // POST /api/complaints/sync: Handle bulk sync
 app.post('/api/complaints/sync', async (req, res) => {
