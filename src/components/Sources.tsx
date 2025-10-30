@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DataSource } from './../shared/types';
+import { DataSource } from './../types';
 import { TwitterIcon, RedditIcon, DatabaseIcon, UsersIcon } from './icons/IconComponents';
 
 interface SourcesProps {

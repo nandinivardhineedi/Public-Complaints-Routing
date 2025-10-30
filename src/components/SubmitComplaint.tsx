@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { UserRole } from '../App';
-import { ComplaintCategory } from './../shared/types';
+import { ComplaintCategory } from './../types';
 
 interface SubmitComplaintProps {
   onAddComplaint: (formData: { 

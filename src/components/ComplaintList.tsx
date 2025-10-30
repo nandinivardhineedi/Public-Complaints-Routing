@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { Complaint, ComplaintStatus, ComplaintCategory } from './../shared/types';
+import { Complaint, ComplaintStatus, ComplaintCategory } from './../types';
 import { EyeIcon } from './icons/IconComponents';
 import { ComplaintDetailModal } from './ComplaintDetailModal';
 

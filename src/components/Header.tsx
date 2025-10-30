@@ -1,6 +1,6 @@
 import React from 'react';
 import type { View } from '../App';
-import type { User } from './../shared/types';
+import type { User } from './../types';
 import { LogoutIcon, UserIcon } from './icons/IconComponents';
 
 interface HeaderProps {

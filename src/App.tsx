@@ -7,8 +7,8 @@ import { Sidebar } from './components/Sidebar';
 import { SubmitComplaint } from './components/SubmitComplaint';
 import { Sources } from './components/Sources';
 import { LoginPage } from './components/LoginPage';
-import type { Complaint, User } from './shared/types';
-import { ComplaintCategory, ComplaintStatus, DataSource } from './shared/types';
+import type { Complaint, User } from './types';
+import { ComplaintCategory, ComplaintStatus, DataSource } from './types';
 import { NotificationContainer } from './components/NotificationContainer';
 import type { Notification } from './components/NotificationContainer';
 import { Profile } from './components/Profile';
@@ -20,7 +20,7 @@ import {
   fetchAllComplaintsFromDB,
   updateUserProfileInDB, 
   updateAdminPasswordInDB 
-} from './api/mongoService'; 
+} from '../api/mongoService'; 
 
 // const API_URL = process.env.REACT_APP_API_URL;
 
